@@ -3,35 +3,31 @@ import csv
 
 csvpath = os.path.join("Resources", "budget_data.csv")
 
-totalProfit_Loss = 0
+#This will turn total months into a list 
+revenue = 0
+def calculations (data):
+    #months = str(data[0])
+    #profit = int(data[1])
 
-def analyze():
-    totalRow = len(list(csvreader))
+    #Gets total amount of rows    
+    month_count = (sum(1 for row in csvreader) + 1)
     
-    
-    #profit = 0 
-    #profit += int(row[1])
-    
-    #Below prints the total amount of rows, subtracting one to account for the header
-    print(int(totalRow))
-    #Total Profil/Loss should be 38,382,578
-    #print(profit)
+    #Totals Monthly profit/loss
+    revenue_total = sum(int(data[1]) for row in csvreader)
 
-
+    #All print statements
+    print(month_count) #Should be 86
+    
+    #Print Monthly revenue
+    #print(total) #Total Profil/Loss should be 38,382,578
 
 
 #Loop that goes through each row of data in the csv file
 with open(csvpath, 'r') as csvfile:
-    
-    # Split the data on commas
     csvreader = csv.reader(csvfile, delimiter=',')
-    
-    #for some reason this fails when I have two for loops, but when I combine them it will only print
-    #the first row and the total amount of months or every row and no total
+       
+    header = next(csvreader) #excludes header column
+    #row = next(csvreader)
     for row in csvreader:
-        print(row)
-        
-    for row in csvreader:
-        analyze()
-    
+        P_F = calculations(row)
     
