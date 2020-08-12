@@ -12,7 +12,7 @@ def calculations (data):
     month_count = (sum(1 for row in csvreader) + 1)
     
     #Totals Monthly profit/loss
-    revenue_total = sum(float(profit))
+    #revenue_total = sum(float(profit))
 
     #All print statements
     print(month_count) #Should be 86
@@ -29,13 +29,12 @@ with open(csvpath, 'r') as csvfile:
     
     #######
     #I know the code below works for sure - with accurate data
-    #csvdata = list(csvreader)
-    #row_count = len(csvdata)
-    #print(row_count)
+    csvdata = list(csvreader)
+    row_count = len(csvdata)
+    print(row_count)
     #######
     
-
-       
+    # Code below calculates the total amount revenue   
     monthly_rev = [] 
     for row in csvreader:
         values = row[1] 
@@ -43,7 +42,7 @@ with open(csvpath, 'r') as csvfile:
     monthly_rev_list = [float(integral) for integral in monthly_rev] 
     totals3 = sum(monthly_rev_list) 
     
-    print(totals3)
+    #print(totals3)
     #for row in csvreader:
     #    calculations(row)
     
