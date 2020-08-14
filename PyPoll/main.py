@@ -30,10 +30,10 @@ Li_Count = Candidate_List.count('Li')
 Otooley_Count = Candidate_List.count("O'Tooley")
 
 #Candidates Percentages
-Khan_Percentage = Khan_Count / Tot_Voter_Count
-Correy_Percentage = Correy_Count / Tot_Voter_Count
-Li_Percentage = Li_Count / Tot_Voter_Count
-Otooley_Percentage = Otooley_Count / Tot_Voter_Count
+Khan_Percentage = (Khan_Count / Tot_Voter_Count) * 100
+Correy_Percentage = (Correy_Count / Tot_Voter_Count) * 100
+Li_Percentage = (Li_Count / Tot_Voter_Count) * 100
+Otooley_Percentage = (Otooley_Count / Tot_Voter_Count) * 100
 
 
 #Desired data as strings
@@ -43,6 +43,7 @@ Khan_Count_Str = str(Khan_Count)
 Correy_Count_Str = str(Correy_Count)
 Li_Count_Str = str(Li_Count)
 Otooley_Count_Str = str(Otooley_Count)
+
 #Percentages as strings
 Khan_Percentage_Str = str(round(Khan_Percentage, 3))
 Correy_Percentage_Str = str(round(Correy_Percentage, 3))
@@ -53,12 +54,12 @@ Otooley_Percentage_Str =str(round(Otooley_Percentage, 3))
 #All print statements
 print("Election Results")
 print("-------------------------------")
-print("Total Votes: " + + Voter_Count)
+print("Total Votes: " + Voter_Count)
 print("-------------------------------")
-print("Khan: " + "(" + Khan_Count_Str + ")")
-print("Correy: " + "(" + Correy_Count_Str + ")")
-print("Li: " + "(" + Li_Count_Str + ")")
-print("O'Tooley: " + "(" + Otooley_Count_Str + ")")
+print("Khan: " + Khan_Percentage_Str + "% (" + Khan_Count_Str + ")")
+print("Correy: " + Correy_Percentage_Str +  "% (" + Correy_Count_Str + ")")
+print("Li: " + Li_Percentage_Str + "% (" + Li_Count_Str + ")")
+print("O'Tooley: " + Otooley_Percentage_Str + "% (" + Otooley_Count_Str + ")")
 print("-------------------------------")
 print("Winner: ")
 print("-------------------------------")
@@ -69,10 +70,10 @@ Results.write("Election Results"  + '\n')
 Results.write("-------------------------------"  + '\n')
 Results.write("Total Votes: " + Voter_Count  + '\n')
 Results.write("-------------------------------"  + '\n')
-Results.write("Khan: " + "(" + Khan_Count_Str + ")"  + '\n')
-Results.write("Correy: " + "(" + Correy_Count_Str + ")" + '\n')
-Results.write("Li: " + "(" + Li_Count_Str + ")" + '\n')
-Results.write("O'Tooley: " + "(" + Otooley_Count_Str + ")" + '\n')
+Results.write("Khan: " + Khan_Percentage_Str + "% (" + Khan_Count_Str + ")" + '\n')
+Results.write("Correy: " + Correy_Percentage_Str +  "% (" + Correy_Count_Str + ")" + '\n')
+Results.write("Li: " + Li_Percentage_Str + "% (" + Li_Count_Str + ")" + '\n')
+Results.write("O'Tooley: " + Otooley_Percentage_Str + "% (" + Otooley_Count_Str + ")" + '\n')
 Results.write("-------------------------------" + '\n')
 Results.write("Winner: " + '\n')
 Results.write("-------------------------------" + '\n')
