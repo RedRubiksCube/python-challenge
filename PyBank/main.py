@@ -22,32 +22,43 @@ with open(csvpath, 'r') as csvfile:
         
         tot_month.append(months)          
     
-    #The two lines below this get the total revenue for the given period
-    #They reference the monthly_rev list 
-    monthly_rev_list = [float(integral) for integral in monthly_rev] 
-    totals3 = sum(monthly_rev_list) 
+#The two lines below this get the total revenue for the given period
+#They reference the monthly_rev list 
+monthly_rev_list = [float(integral) for integral in monthly_rev] 
+totals3 = sum(monthly_rev_list) 
     
-    #This creates the list of the average monthly revenue but is missing the first value that is needed
-    for i in range(len(monthly_rev)):
-        j = int(i - 1)
-        if j > -1:
-            diff = (int(monthly_rev[i]) - int(monthly_rev[j]))
-            monthly_rev_diff.append(diff)
+#This creates the list of the average monthly revenue but is missing the first value that is needed
+for i in range(len(monthly_rev)):
+    j = int(i - 1)
+    if j > -1:
+        diff = (int(monthly_rev[i]) - int(monthly_rev[j]))
+        monthly_rev_diff.append(diff)
         
-    #this successfully finds the average change in profit
-    avg = sum(monthly_rev_diff)/len(monthly_rev_diff)   
-    average_month_revenue = str(round(avg, 2))     
-    total_months_str = str(len(tot_month))   
-    
-    #All prints
-    print("Financial Analysis")
-    print("-------------------------------")
-    print("Total Months: " + total_months_str)
-    print("Total: $" + str(totals3))
-    print("Average change: $" + str(average_month_revenue))
-    print("Greatest Increase in Profits: $", max(monthly_rev_diff))
-    print("Greatest Decrease in Profits: $", min(monthly_rev_diff))
+#this successfully finds the average change in profit
+avg = sum(monthly_rev_diff)/len(monthly_rev_diff)   
+average_month_revenue = str(round(avg, 2))     
+total_months_str = str(len(tot_month))   
 
-    #All writing to txt file
-   
-   
+#finds max and min and saves as string
+maximum_prof_change = str(max(monthly_rev_diff))
+minimum_prof_change = str(min(monthly_rev_diff))
+
+#All prints
+print("Financial Analysis")
+print("-------------------------------")
+print("Total Months: " + total_months_str)
+print("Total: $" + str(totals3))
+print("Average change: $" + str(average_month_revenue))
+print("Greatest Increase in Profits: $" + maximum_prof_change)
+print("Greatest Decrease in Profits: $" + minimum_prof_change)
+
+
+#All writing to txt file   
+Analysis = open('Analysis/Financial_Analysis.txt', "w")
+Analysis.write("Financial Analysis"  + '\n')
+Analysis.write("-------------------------------"  + '\n')
+Analysis.write("Total Months: " + total_months_str  + '\n')
+Analysis.write("Total: $" + str(totals3)  + '\n')
+Analysis.write("Average change: $" + str(average_month_revenue)  + '\n' )
+Analysis.write("Greatest Increase in Profits: $" + maximum_prof_change  + '\n')
+Analysis.write("Greatest Decrease in Profits: $" + minimum_prof_change  + '\n')
