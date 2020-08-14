@@ -37,11 +37,17 @@ with open(csvpath, 'r') as csvfile:
     #this successfully finds the average change in profit
     avg = sum(monthly_rev_diff)/len(monthly_rev_diff)   
     average_month_revenue = str(round(avg, 2))     
-        
+    total_months_str = str(len(tot_month))   
+    
     #All prints
-    print(len(tot_month))
-    print(totals3)
-    print(average_month_revenue)
+    print("Financial Analysis")
+    print("-------------------------------")
+    print("Total Months: " + total_months_str)
+    print("Total: $" + str(totals3))
+    print("Average change: $" + str(average_month_revenue))
     print("Greatest Increase in Profits: $", max(monthly_rev_diff))
     print("Greatest Decrease in Profits: $", min(monthly_rev_diff))
+
+    #All writing to txt file
+   
    
