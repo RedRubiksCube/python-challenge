@@ -50,6 +50,14 @@ Correy_Percentage_Str = str(round(Correy_Percentage, 3))
 Li_Percentage_Str = str(round(Li_Percentage, 3))
 Otooley_Percentage_Str =str(round(Otooley_Percentage, 3))
 
+#Finding the winner
+winner = {}
+winner["Khan"] = Khan_Count
+winner["Correy"] = Correy_Count
+winner["Li"] = Li_Count 
+winner["Otooley"] =  Otooley_Count
+
+winner_name = max(winner, key=winner.get)
 
 #All print statements
 print("Election Results")
@@ -61,7 +69,7 @@ print("Correy: " + Correy_Percentage_Str +  "% (" + Correy_Count_Str + ")")
 print("Li: " + Li_Percentage_Str + "% (" + Li_Count_Str + ")")
 print("O'Tooley: " + Otooley_Percentage_Str + "% (" + Otooley_Count_Str + ")")
 print("-------------------------------")
-print("Winner: ")
+print("Winner: " + winner_name)
 print("-------------------------------")
 
 #All writing to txt file   
@@ -75,5 +83,5 @@ Results.write("Correy: " + Correy_Percentage_Str +  "% (" + Correy_Count_Str + "
 Results.write("Li: " + Li_Percentage_Str + "% (" + Li_Count_Str + ")" + '\n')
 Results.write("O'Tooley: " + Otooley_Percentage_Str + "% (" + Otooley_Count_Str + ")" + '\n')
 Results.write("-------------------------------" + '\n')
-Results.write("Winner: " + '\n')
-Results.write("-------------------------------" + '\n')
+Results.write("Winner: " + winner_name +'\n')
+Results.write("-------------------------------" )
